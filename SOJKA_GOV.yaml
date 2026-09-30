@@ -1,35 +1,28 @@
-schema_version: 1
+schema_version: 2
 system: SOJKA.GOV
-status: INHERITED_CONTROL_PLANE
-snapshot: 2026-09-25
+status: ORG_METADATA_POINTER
+snapshot: 2026-09-30
 
 control_plane:
-  repository: sojka-pro/sojka-pro
+  repository: sojka-pro/core
   branch: main
+  authority: CORE.md
+  state: STATE.yaml
   registry: registry/projects.yaml
-  admin_commands: docs/admin/ADMIN_COMMANDS_V1.md
-  owner_ui_contract: docs/admin/OWNER_RESPONSE_UX_V1.md
+  commands: docs/admin/COMMAND_INTERFACE_V3.md
 
-owner_ui:
-  inherited_from: sojka-pro/sojka-pro@main
-  recommendation_copy_paste_required: true
-  no_action_value: "[ok]"
-  material_footer:
-    - NOW
-    - OWNER
-    - WAITING_FOR
-    - ADMIN_ACTION
-    - RECOMMENDATION_COPY_PASTE
-    - NEXT
+marai:
+  repository: sojka-pro/marai
+  parent_authority: sojka-pro/core
 
-local:
+public_profile:
   repository: sojka-pro/.github
-  class: RETAIN_ORG_DISTRIBUTION
-  role: ORG_METADATA
+  profile: https://github.com/sojka-pro
+  role: PRESENTATION_METADATA
 
 rules:
+  private_core_state_not_duplicated_here: true
   github_main_canonical: true
-  root_governance_controls_authority: true
-  fail_closed_on_uncertainty: true
+  capability_is_not_authority: true
 
-note: "Public organization metadata governance pointer only. No private SOJKA.PRO state is duplicated here."
+note: "Public organization metadata and pointers only. Private SOJKA.PRO state lives in sojka-pro/core; MarAI identity/R&D lives in sojka-pro/marai."
