@@ -1,8 +1,7 @@
 schema_version: 2
 system: SOJKA.GOV
 status: ORG_METADATA_POINTER
-snapshot: 2026-09-30
-
+snapshot: '2026-10-12'
 control_plane:
   repository: sojka-pro/core
   branch: main
@@ -10,19 +9,17 @@ control_plane:
   state: STATE.yaml
   registry: registry/projects.yaml
   commands: docs/admin/COMMAND_INTERFACE_V3.md
-
 marai:
   repository: sojka-pro/marai
   parent_authority: sojka-pro/core
-
 public_profile:
   repository: sojka-pro/.github
   profile: https://github.com/sojka-pro
   role: PRESENTATION_METADATA
-
 rules:
   private_core_state_not_duplicated_here: true
   github_main_canonical: true
   capability_is_not_authority: true
-
-note: "Public organization metadata and pointers only. Private SOJKA.PRO state lives in sojka-pro/core; MarAI identity/R&D lives in sojka-pro/marai."
+  merge_authority: EXPLICIT_OWNER_APPROVAL_FOR_SCOPE
+note: Metadata pointer only. Resolve current core and project-local state; no automatic
+  runtime or authority.
